@@ -1,0 +1,94 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: RecVue
+providerId: recvue
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- Revenue Recognition
+- Billing
+- Revenue Management
+- Enterprise
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of RecVue spend. RecVue is an enterprise SaaS platform billed
+  under a negotiated agreement rather than usage-metered public API pricing.
+  Cost drivers are the contracted platform subscription plus the scope of
+  modules (billing, revenue recognition, order-to-cash, usage/monetization,
+  partner settlements), transaction/billing volume, number of legal entities,
+  and integration footprint. There is no separate public per-call API fee; API
+  and sandbox access are included in the platform contract. Per-unit rates are
+  not public and are not reconciled here.
+notes: >-
+  RecVue publishes no pricing page; commercial terms are quote-based. Track spend
+  against the contracted subscription and any volume-tier true-ups; the platform
+  processes very high transaction volumes (RecVue cites 350M monthly
+  transactions and $110B managed revenue across its base), so transaction volume
+  is the primary driver to monitor at renewal.
+sources:
+- https://www.recvue.com/
+- https://www.recvue.com/solutions/revos-platform/
+- https://developer.recvue.com/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: RecVue
+serviceCategory: Financial Applications and Revenue Management
+billingModel:
+  pricingCategory: Committed-Use / Subscription
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: RecVue RevOS
+  ServiceCategory: Financial Applications and Revenue Management
+  ProviderName: RecVue
+  PublisherName: RecVue
+  InvoiceIssuerName: RecVue
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Committed-Use
+meters:
+- name: platform_subscription
+  description: Contracted RevOS platform subscription (module scope, entities, support tier).
+  unit: contract
+  aggregation: sum
+  dimensions:
+  - tenant
+  - modules
+- name: transaction_volume
+  description: Billed/processed transactions across billing and revenue, a primary contract sizing driver.
+  unit: transactions
+  aggregation: sum
+  dimensions:
+  - tenant
+  - entity
+- name: entities
+  description: Number of legal entities configured in the platform.
+  unit: entities
+  aggregation: max
+  dimensions:
+  - tenant
+principles:
+- name: Visibility
+  description: Track transaction and billing volume per entity against the contracted tier to anticipate true-ups at renewal.
+- name: Allocation
+  description: Map modules and entities to internal cost centers and business units.
+- name: Optimization
+  description: Right-size module scope and use the Bulk API and asynchronous programs to keep processing efficient; consolidate integrations.
+- name: Accountability
+  description: Assign a platform owner in the office of the CFO; review volume and module usage before each renewal.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

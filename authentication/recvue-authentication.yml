@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: sourced
+source: https://developer.recvue.com/reference/tokenusingpost
+summary:
+  types:
+  - oauth2
+schemes:
+- name: oauth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  tokenUrl: https://api.recvue.com/api/v2.0/api/scim/oauth/token
+  grantType: client_credentials
+  description: >-
+    RecVue authenticates with OAuth2 using the client_credentials grant.
+    Request an access token from the token endpoint by sending
+    grant_type=client_credentials with a Basic auth header (client_id:client_secret)
+    or client_id/client_secret as x-www-form-urlencoded form params. The
+    returned access token is passed as an Authorization Bearer header on
+    subsequent API calls. Sandbox uses host sandbox-api.recvue.com.
+  sources:
+  - https://developer.recvue.com/reference/tokenusingpost

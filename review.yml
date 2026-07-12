@@ -1,0 +1,99 @@
+aid: recvue
+name: RecVue
+review:
+  question: Does RecVue expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-11'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. RecVue's documented developer surface at
+    developer.recvue.com is request/response REST over HTTPS (JSON), plus a Bulk
+    API for asynchronous CSV imports and a concurrent-program execution
+    endpoint for long-running jobs (bill runs, revenue recognition, exports).
+    There is no server-push transport (WebSocket or SSE) on RecVue's own API to
+    model. Asynchronous job completion is surfaced by polling program-request
+    status and by an HTTP callback (a rebill/billing-process callback webhook) -
+    server-to-endpoint HTTP, not a WebSocket. Those are outside the scope of an
+    AsyncAPI document for RecVue.
+findings:
+  summary: |
+    RecVue does not publish a documented public WebSocket API. RecVue is an
+    enterprise revenue management platform (RevOS) covering order-to-cash,
+    billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue
+    recognition. Its public developer reference (developer.recvue.com) describes
+    a "completely RESTful" API that returns JSON, authenticated with OAuth2
+    client_credentials (token at /api/scim/oauth/token), with production base
+    https://api.recvue.com/api/v2.0 and sandbox
+    https://sandbox-api.recvue.com/api/v2.0. The API spans 120+ endpoints across
+    orders, bill runs, billing schedules, pricing, usage/deliveries, customers,
+    suppliers, invoices/adjustments, revenue contracts, and SCIM user
+    provisioning, plus a Bulk API and asynchronous concurrent programs. Long
+    jobs are handled by polling program status or via an HTTP callback webhook,
+    not a WebSocket. No realtime, bidirectional, or streaming WebSocket (ws:// or
+    wss://) endpoint is documented on RecVue's API.
+  accessModel: |
+    The API reference is public at developer.recvue.com, but RecVue is an
+    enterprise platform: production and sandbox tenants and API credentials are
+    provisioned through a direct sales process (no public self-service signup or
+    pricing). Official client libraries are offered for Node, Ruby, JavaScript,
+    and Python, and an llms.txt index is published for AI agents.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.recvue.com/api/v2.0
+      documented: true
+      note: Primary developer API. Sandbox base is https://sandbox-api.recvue.com/api/v2.0.
+    - protocol: Bulk (async CSV)
+      scheme: https
+      documented: true
+      note: Asynchronous CSV imports (orders up to 10,000/job, price lists, tiers). Client-initiated, not server push.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Billing/rebill process callback posts on job completion. Server-to-endpoint HTTP, not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in RecVue's public API reference as of the review date.
+  endpointsConfirmed:
+    - POST https://api.recvue.com/api/v2.0/api/scim/oauth/token
+    - GET  https://api.recvue.com/api/v2.0/orders
+  endpointsModeled: true
+  endpointsModeledNote: |
+    Base URLs, OAuth2 client_credentials auth, and the GET /orders and token
+    paths are confirmed verbatim from developer.recvue.com. The remaining paths
+    in the authored OpenAPI (bill runs, billing schedules, pricing, usage,
+    customers, invoices, revenue-contract setup, program execution) correspond
+    to documented reference operations but their exact path segments and payload
+    schemas are honestly modeled, not reproduced field-for-field. RecVue's
+    reference lists 120+ operations; the model covers a representative,
+    use-case-focused subset (billing, revenue recognition, order-to-cash, usage).
+sources:
+  - url: https://developer.recvue.com/
+    type: Documentation
+    note: RESTful JSON API overview, Bulk API, client libraries (Node, Ruby, JS, Python), llms.txt.
+  - url: https://developer.recvue.com/reference
+    type: APIReference
+    note: v2.0 / v3.0 API reference index.
+  - url: https://developer.recvue.com/reference/tokenusingpost
+    type: APIReference
+    note: OAuth2 client_credentials token endpoint; base URLs api.recvue.com and sandbox-api.recvue.com.
+  - url: https://developer.recvue.com/reference/getorder
+    type: APIReference
+    note: GET /orders confirmed against base /api/v2.0.
+  - url: https://developer.recvue.com/reference/getrevcontractamendsetup
+    type: APIReference
+    note: ASC 606 revenue-contract amendment setup.
+  - url: https://www.recvue.com/solutions/revos-platform/
+    type: Documentation
+    note: RevOS platform - "Open APIs, SDKs, and config frameworks"; ASC 606 / IFRS 15.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and RecVue's own public API is
+    request/response REST plus a Bulk API and asynchronous concurrent programs.
+    No AsyncAPI document was created because there is no server-push transport on
+    RecVue's API to model; asynchronous completion is delivered by status
+    polling or an HTTP callback webhook.

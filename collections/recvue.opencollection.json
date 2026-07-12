@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RecVue API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{accessToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Authentication", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Issue OAuth2 access token", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.recvue.com/api/v2.0/api/scim/oauth/token",
+            "auth": { "type": "none" },
+            "body": { "type": "urlencoded", "data": { "grant_type": "client_credentials", "client_id": "{{clientId}}", "client_secret": "{{clientSecret}}" } }
+          },
+          "docs": "Issues an access token using the client_credentials grant. Basic auth header or client_id/client_secret form params."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Orders", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get orders", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.recvue.com/api/v2.0/orders" },
+          "docs": "Retrieves a paginated list of orders with comprehensive filtering options."
+        },
+        {
+          "info": { "name": "Create order", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.recvue.com/api/v2.0/orders", "body": { "type": "json", "data": "{}" } },
+          "docs": "Creates an order."
+        },
+        {
+          "info": { "name": "Activate order", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.recvue.com/api/v2.0/orders/:orderId/activate",
+            "params": [ { "name": "orderId", "value": "", "type": "path", "description": "The order ID." } ]
+          },
+          "docs": "Enables billing schedule generation for the order."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Billing", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get bill runs", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.recvue.com/api/v2.0/billruns" },
+          "docs": "Retrieves bill runs with advanced filtering by name, date, and status."
+        },
+        {
+          "info": { "name": "Create bill run", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.recvue.com/api/v2.0/billruns", "body": { "type": "json", "data": "{}" } },
+          "docs": "Generates invoices. Status flows CREATED to PROCESSING to COMPLETED."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Billing Schedules", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get billing schedules", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.recvue.com/api/v2.0/billingschedules" },
+          "docs": "Paginated retrieval of billing schedules with filters."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Pricing", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get price lists", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.recvue.com/api/v2.0/pricelists" },
+          "docs": "Paginated retrieval of price lists with filtering."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Usage", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Load usage records into batch", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.recvue.com/api/v2.0/usage/batches", "body": { "type": "json", "data": "{}" } },
+          "docs": "Loads usage records as a JSON payload routed to the Usage Hub."
+        },
+        {
+          "info": { "name": "List usages/deliveries", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.recvue.com/api/v2.0/deliveries" },
+          "docs": "Paginated ORDER_DELIVERIES records."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Customers", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get customer accounts", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.recvue.com/api/v2.0/customers" },
+          "docs": "Retrieves customer accounts by ID or origSystemReference."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Invoices", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Create or update invoice", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.recvue.com/api/v2.0/invoices", "body": { "type": "json", "data": "{}" } },
+          "docs": "Creates or updates an invoice for manual AR integration."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Revenue Recognition", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get revenue contract amendment setup", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.recvue.com/api/v2.0/revenue/contract-amendment-setup" },
+          "docs": "Retrieves ASC 606 POB and compliance configuration for revenue-contract amendments."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Programs", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Execute concurrent program", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.recvue.com/api/v2.0/programs/execute", "body": { "type": "json", "data": "{}" } },
+          "docs": "Asynchronously executes a background program - bill runs, revenue recognition, tax, exports."
+        }
+      ]
+    }
+  ]
+}

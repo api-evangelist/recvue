@@ -1,0 +1,67 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: RecVue
+providerId: recvue
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- Revenue Recognition
+- ASC 606
+- Billing
+- Revenue Management
+- Enterprise
+- Plans
+description: >-
+  RecVue is an enterprise platform sold through a direct sales motion. There is
+  no public self-service pricing or free tier - production and sandbox tenants,
+  API credentials, and the RevOS modules (billing, revenue recognition,
+  order-to-cash, usage/monetization, partner settlements) are provisioned under
+  a negotiated enterprise agreement. Third-party listings put RecVue's entry
+  point at roughly $1,000+/month, but actual pricing is quote-based and depends
+  on transaction volume, modules, entities, and integrations. The developer API
+  itself carries no separate published fee; access follows the platform
+  contract. All figures here are unreconciled - confirm with RecVue sales.
+notes: >-
+  RecVue does not publish a pricing page; prospects request a demo. RecVue is a
+  Palo Alto company (founded 2016) serving large enterprises across telecom,
+  transportation and logistics, technology, AI infrastructure, and business
+  services. Verify current commercial terms directly with RecVue.
+sources:
+- https://www.recvue.com/
+- https://www.recvue.com/solutions/revos-platform/
+- https://developer.recvue.com/
+plans:
+- id: recvue-enterprise
+  name: Enterprise (Contact Sales)
+  type: enterprise
+  description: >-
+    Negotiated enterprise agreement covering the RevOS platform, API and sandbox
+    access, and the selected modules (billing automation, revenue recognition,
+    order-to-cash, usage/monetization, partner settlements). Priced on
+    transaction volume, modules, legal entities, and integrations.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: RevOS Platform
+  - name: Billing Automation
+  - name: Revenue Recognition (ASC 606 / IFRS 15)
+  - name: Order-to-Cash
+  - name: Usage-Based Monetization
+  - name: Partner Settlements
+  - name: Developer API and Sandbox Access
+  - name: Pre-Built ERP/CRM Integrations
+  - name: SLAs and Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

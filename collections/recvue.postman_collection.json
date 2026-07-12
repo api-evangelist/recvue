@@ -1,0 +1,211 @@
+{
+  "info": {
+    "name": "RecVue API",
+    "description": "Enterprise revenue management (RevOS) - orders, billing, billing schedules, pricing, usage/deliveries, customers, invoices/adjustments, and ASC 606 / IFRS 15 revenue recognition. Base URL: https://api.recvue.com/api/v2.0 (production) or https://sandbox-api.recvue.com/api/v2.0 (sandbox). Auth is OAuth2 client_credentials (token at /api/scim/oauth/token); pass the resulting access token as a Bearer header. Derived from the public reference at https://developer.recvue.com; some payloads are modeled, tenants are enterprise-provisioned.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{accessToken}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.recvue.com/api/v2.0", "type": "string" },
+    { "key": "accessToken", "value": "", "type": "string" },
+    { "key": "clientId", "value": "", "type": "string" },
+    { "key": "clientSecret", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Issue OAuth2 access token",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "grant_type", "value": "client_credentials" },
+                { "key": "client_id", "value": "{{clientId}}" },
+                { "key": "client_secret", "value": "{{clientSecret}}" }
+              ]
+            },
+            "url": { "raw": "{{baseUrl}}/api/scim/oauth/token", "host": ["{{baseUrl}}"], "path": ["api", "scim", "oauth", "token"] },
+            "description": "Issues an access token using the client_credentials grant. Basic auth header or client_id/client_secret form params."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Get orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/orders", "host": ["{{baseUrl}}"], "path": ["orders"] },
+            "description": "Retrieves a paginated list of orders with comprehensive filtering options."
+          }
+        },
+        {
+          "name": "Create order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"orderType\": \"\",\n  \"customerAccountNumber\": \"\",\n  \"currency\": \"USD\"\n}" },
+            "url": { "raw": "{{baseUrl}}/orders", "host": ["{{baseUrl}}"], "path": ["orders"] },
+            "description": "Creates an order."
+          }
+        },
+        {
+          "name": "Activate order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/orders/:orderId/activate", "host": ["{{baseUrl}}"], "path": ["orders", ":orderId", "activate"] },
+            "description": "Enables billing schedule generation for the order."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Billing",
+      "item": [
+        {
+          "name": "Get bill runs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/billruns", "host": ["{{baseUrl}}"], "path": ["billruns"] },
+            "description": "Retrieves bill runs with advanced filtering by name, date, and status."
+          }
+        },
+        {
+          "name": "Create bill run",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"\",\n  \"billingDate\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/billruns", "host": ["{{baseUrl}}"], "path": ["billruns"] },
+            "description": "Generates invoices. Status flows CREATED to PROCESSING to COMPLETED."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Billing Schedules",
+      "item": [
+        {
+          "name": "Get billing schedules",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/billingschedules", "host": ["{{baseUrl}}"], "path": ["billingschedules"] },
+            "description": "Paginated retrieval of billing schedules with filters."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pricing",
+      "item": [
+        {
+          "name": "Get price lists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/pricelists", "host": ["{{baseUrl}}"], "path": ["pricelists"] },
+            "description": "Paginated retrieval of price lists with filtering."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usage",
+      "item": [
+        {
+          "name": "Load usage records into batch",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"records\": []\n}" },
+            "url": { "raw": "{{baseUrl}}/usage/batches", "host": ["{{baseUrl}}"], "path": ["usage", "batches"] },
+            "description": "Loads usage records as a JSON payload routed to the Usage Hub."
+          }
+        },
+        {
+          "name": "List usages/deliveries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/deliveries", "host": ["{{baseUrl}}"], "path": ["deliveries"] },
+            "description": "Paginated ORDER_DELIVERIES records."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Get customer accounts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/customers", "host": ["{{baseUrl}}"], "path": ["customers"] },
+            "description": "Retrieves customer accounts by ID or origSystemReference."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Invoices",
+      "item": [
+        {
+          "name": "Create or update invoice",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"customerAccountNumber\": \"\",\n  \"transactionType\": \"INV\",\n  \"amount\": 0\n}" },
+            "url": { "raw": "{{baseUrl}}/invoices", "host": ["{{baseUrl}}"], "path": ["invoices"] },
+            "description": "Creates or updates an invoice for manual AR integration."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Revenue Recognition",
+      "item": [
+        {
+          "name": "Get revenue contract amendment setup",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/revenue/contract-amendment-setup", "host": ["{{baseUrl}}"], "path": ["revenue", "contract-amendment-setup"] },
+            "description": "Retrieves ASC 606 POB and compliance configuration for revenue-contract amendments."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Programs",
+      "item": [
+        {
+          "name": "Execute concurrent program",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"programId\": \"\",\n  \"parameters\": {}\n}" },
+            "url": { "raw": "{{baseUrl}}/programs/execute", "host": ["{{baseUrl}}"], "path": ["programs", "execute"] },
+            "description": "Asynchronously executes a background program - bill runs, revenue recognition, tax, exports."
+          }
+        }
+      ]
+    }
+  ]
+}

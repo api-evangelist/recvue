@@ -1,0 +1,62 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: RecVue
+providerId: recvue
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- Revenue Recognition
+- Billing
+- Revenue Management
+- Rate Limiting
+- Quotas
+description: >-
+  RecVue does not publish fixed numeric API rate limits in its public developer
+  reference. As an enterprise platform, throughput and any per-tenant limits are
+  governed by the customer's agreement and tenant sizing rather than a public
+  per-minute request cap. For high-volume work RecVue directs clients to the
+  Bulk API (asynchronous CSV import of up to 10,000 orders per job, plus bulk
+  price-list and tier imports) and to asynchronous concurrent programs (bill
+  runs, revenue recognition, exports) and a Spark-based rebill path for
+  10,000+ schedules, rather than to high-frequency synchronous calls.
+notes: >-
+  No numeric per-account or per-endpoint limits are documented as of the review
+  date. Prefer the Bulk API and asynchronous programs for large data sets;
+  confirm any tenant-specific limits with RecVue.
+sources:
+- https://developer.recvue.com/
+- https://developer.recvue.com/reference/loadorderimportpost
+- https://developer.recvue.com/reference/callprograms
+responseCodes:
+  throttled: 429
+limits:
+- name: Synchronous API Requests
+  scope: tenant
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented in the public reference.
+- name: Bulk Order Import
+  scope: job
+  metric: orders
+  limit: 10000 per import job
+  notes: Asynchronous CSV import; use for large order loads instead of per-order POSTs.
+- name: Rebill Spark Program
+  scope: job
+  metric: schedules
+  limit: designed for 10000+ schedules
+  notes: Parallel processing path for large rebill batches.
+- name: Concurrent Programs
+  scope: tenant
+  metric: jobs
+  limit: async
+  notes: Bill runs, revenue recognition, tax, and exports run asynchronously via program execution.
+policies:
+- name: Prefer Bulk and Async
+  description: Large data operations should use the Bulk API and concurrent-program execution rather than high-frequency synchronous calls.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
