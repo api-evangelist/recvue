@@ -237,6 +237,8 @@ apis:
     and bulk imports), manage transaction types (INV, CM, DM), and update
     payment and billing lines with AR transaction IDs and GL dates.
 common:
+- type: AgenticAccess
+  url: agentic-access/recvue-agentic-access.yml
 - type: Authentication
   url: authentication/recvue-authentication.yml
 - type: LinkedIn
