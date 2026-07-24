@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: RecVue Authentication Billing API
+  description: 'RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue''s public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.'
+  version: '2.0'
+  contact:
+    name: RecVue
+    url: https://www.recvue.com/
+servers:
+- url: https://api.recvue.com/api/v2.0
+  description: Production
+- url: https://sandbox-api.recvue.com/api/v2.0
+  description: Sandbox
+security:
+- oauth2ClientCredentials: []
+tags:
+- name: Billing
+  description: Bill runs and invoice generation.
+paths:
+  /billruns:
+    get:
+      operationId: getBillRuns
+      tags:
+      - Billing
+      summary: Get bill runs
+      description: Retrieves bill runs with advanced filtering by name, date, and status.
+      x-endpointsModeled: true
+      responses:
+        '200':
+          description: A list of bill runs.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BillRun'
+    post:
+      operationId: createBillRun
+      tags:
+      - Billing
+      summary: Create bill run
+      description: Generates invoices. Status flows CREATED to PROCESSING to COMPLETED.
+      x-endpointsModeled: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillRun'
+      responses:
+        '200':
+          description: The created bill run.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillRun'
+components:
+  schemas:
+    BillRun:
+      type: object
+      properties:
+        billRunId:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+          - CREATED
+          - PROCESSING
+          - COMPLETED
+        billingDate:
+          type: string
+          format: date
+      additionalProperties: true
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.recvue.com/api/v2.0/api/scim/oauth/token
+          scopes: {}

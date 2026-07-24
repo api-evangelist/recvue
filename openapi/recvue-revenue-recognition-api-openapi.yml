@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: RecVue Authentication Revenue Recognition API
+  description: 'RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue''s public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.'
+  version: '2.0'
+  contact:
+    name: RecVue
+    url: https://www.recvue.com/
+servers:
+- url: https://api.recvue.com/api/v2.0
+  description: Production
+- url: https://sandbox-api.recvue.com/api/v2.0
+  description: Sandbox
+security:
+- oauth2ClientCredentials: []
+tags:
+- name: Revenue Recognition
+  description: ASC 606 / IFRS 15 revenue-contract configuration.
+paths:
+  /revenue/contract-amendment-setup:
+    get:
+      operationId: getRevenueContractAmendmentSetup
+      tags:
+      - Revenue Recognition
+      summary: Get revenue contract amendment setup
+      description: Retrieves ASC 606 performance-obligation (POB) and compliance configuration for revenue-contract amendments.
+      x-endpointsModeled: true
+      responses:
+        '200':
+          description: The revenue contract amendment setup.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevenueContractAmendmentSetup'
+    post:
+      operationId: createRevenueContractAmendmentSetup
+      tags:
+      - Revenue Recognition
+      summary: Create revenue contract amendment setup
+      description: Creates ASC 606 POB and compliance controls for a revenue contract.
+      x-endpointsModeled: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevenueContractAmendmentSetup'
+      responses:
+        '200':
+          description: The created setup.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevenueContractAmendmentSetup'
+components:
+  schemas:
+    RevenueContractAmendmentSetup:
+      type: object
+      properties:
+        setupId:
+          type: string
+        performanceObligation:
+          type: string
+        allocationMethod:
+          type: string
+        complianceStandard:
+          type: string
+          enum:
+          - ASC606
+          - IFRS15
+      additionalProperties: true
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.recvue.com/api/v2.0/api/scim/oauth/token
+          scopes: {}

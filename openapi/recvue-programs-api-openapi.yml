@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: RecVue Authentication Programs API
+  description: 'RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue''s public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.'
+  version: '2.0'
+  contact:
+    name: RecVue
+    url: https://www.recvue.com/
+servers:
+- url: https://api.recvue.com/api/v2.0
+  description: Production
+- url: https://sandbox-api.recvue.com/api/v2.0
+  description: Sandbox
+security:
+- oauth2ClientCredentials: []
+tags:
+- name: Programs
+  description: Asynchronous concurrent programs (bill runs, revenue, exports).
+paths:
+  /programs/execute:
+    post:
+      operationId: executeConcurrentProgram
+      tags:
+      - Programs
+      summary: Execute concurrent program
+      description: Asynchronously executes a background program - bill runs, revenue recognition, tax, and exports.
+      x-endpointsModeled: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                programId:
+                  type: string
+                parameters:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '202':
+          description: Program accepted for asynchronous execution.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requestId:
+                    type: string
+                  status:
+                    type: string
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.recvue.com/api/v2.0/api/scim/oauth/token
+          scopes: {}

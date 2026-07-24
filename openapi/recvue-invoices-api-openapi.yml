@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: RecVue Authentication Invoices API
+  description: 'RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue''s public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.'
+  version: '2.0'
+  contact:
+    name: RecVue
+    url: https://www.recvue.com/
+servers:
+- url: https://api.recvue.com/api/v2.0
+  description: Production
+- url: https://sandbox-api.recvue.com/api/v2.0
+  description: Sandbox
+security:
+- oauth2ClientCredentials: []
+tags:
+- name: Invoices
+  description: Invoices and adjustments (AR integration).
+paths:
+  /invoices:
+    post:
+      operationId: createInvoice
+      tags:
+      - Invoices
+      summary: Create or update invoice
+      description: Creates or updates an invoice for manual AR integration.
+      x-endpointsModeled: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invoice'
+      responses:
+        '200':
+          description: The created or updated invoice.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+components:
+  schemas:
+    Invoice:
+      type: object
+      properties:
+        invoiceNumber:
+          type: string
+        customerAccountNumber:
+          type: string
+        transactionType:
+          type: string
+          enum:
+          - INV
+          - CM
+          - DM
+        amount:
+          type: number
+        glDate:
+          type: string
+          format: date
+      additionalProperties: true
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.recvue.com/api/v2.0/api/scim/oauth/token
+          scopes: {}
