@@ -1,0 +1,32 @@
+{
+  "provider": "recvue",
+  "sources": [
+    "recvue-authentication-api-openapi.yml",
+    "recvue-billing-api-openapi.yml",
+    "recvue-billing-schedules-api-openapi.yml",
+    "recvue-customers-api-openapi.yml",
+    "recvue-invoices-api-openapi.yml",
+    "recvue-orders-api-openapi.yml",
+    "recvue-pricing-api-openapi.yml",
+    "recvue-programs-api-openapi.yml",
+    "recvue-revenue-recognition-api-openapi.yml",
+    "recvue-usage-api-openapi.yml"
+  ],
+  "outputs": [
+    "recvue-authentication-api-openapi.yml",
+    "recvue-billing-api-openapi.yml",
+    "recvue-billing-schedules-api-openapi.yml",
+    "recvue-customers-api-openapi.yml",
+    "recvue-invoices-api-openapi.yml",
+    "recvue-orders-api-openapi.yml",
+    "recvue-pricing-api-openapi.yml",
+    "recvue-programs-api-openapi.yml",
+    "recvue-revenue-recognition-api-openapi.yml",
+    "recvue-usage-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
