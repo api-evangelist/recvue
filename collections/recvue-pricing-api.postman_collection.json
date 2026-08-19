@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "73b2dd02-3fbe-44f5-b2d8-160c7b36206e",
+      "name": "Pricing",
+      "description": {
+        "content": "Price lists, tier pricing, and pricing rules.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c578e20a-14de-4cdd-83a0-be8af79e5da9",
+          "name": "Get price lists",
+          "request": {
+            "name": "Get price lists",
+            "description": {
+              "content": "Paginated retrieval of price lists with filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricelists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa533b01-4501-4b6b-afcf-97fa44a36bbb",
+              "name": "A list of price lists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricelists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"priceListId\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"HIERARCHICAL\",\n      \"items\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": 4198.715600245549,\n          \"key_1\": 2358.66678629958\n        }\n      ]\n    },\n    {\n      \"priceListId\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"REVENUE\",\n      \"items\": [\n        {\n          \"key_0\": 1668.9884167844782,\n          \"key_1\": 8621.018472396074,\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        },\n        {\n          \"key_0\": true,\n          \"key_1\": 1019,\n          \"key_2\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.recvue.com/api/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.recvue.com/api/v2.0/api/scim/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2b1df328-6969-4732-9627-53b1f1c715c2",
+    "name": "RecVue Authentication Pricing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue's public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.\n\nContact Support:\n Name: RecVue",
+      "type": "text/plain"
+    }
+  }
+}

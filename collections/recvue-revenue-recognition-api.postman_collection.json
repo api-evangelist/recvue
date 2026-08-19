@@ -1,0 +1,226 @@
+{
+  "item": [
+    {
+      "id": "68857478-445e-448f-9a13-9122d352aace",
+      "name": "Revenue Recognition",
+      "description": {
+        "content": "ASC 606 / IFRS 15 revenue-contract configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bdd34f76-50e8-45e7-87e2-90ab3f5d9d8d",
+          "name": "Get revenue contract amendment setup",
+          "request": {
+            "name": "Get revenue contract amendment setup",
+            "description": {
+              "content": "Retrieves ASC 606 performance-obligation (POB) and compliance configuration for revenue-contract amendments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "revenue",
+                "contract-amendment-setup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff2b64eb-75a1-413f-924d-adfb78159344",
+              "name": "The revenue contract amendment setup.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "revenue",
+                    "contract-amendment-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"setupId\": \"string\",\n  \"performanceObligation\": \"string\",\n  \"allocationMethod\": \"string\",\n  \"complianceStandard\": \"ASC606\",\n  \"key_0\": 2994.295012689084,\n  \"key_1\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "920f0c38-0728-4653-a931-a28d3b65f768",
+          "name": "Create revenue contract amendment setup",
+          "request": {
+            "name": "Create revenue contract amendment setup",
+            "description": {
+              "content": "Creates ASC 606 POB and compliance controls for a revenue contract.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "revenue",
+                "contract-amendment-setup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"setupId\": \"<string>\",\n  \"performanceObligation\": \"<string>\",\n  \"allocationMethod\": \"<string>\",\n  \"complianceStandard\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ace1c04-85c0-47a6-8245-f737fdb5a527",
+              "name": "The created setup.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "revenue",
+                    "contract-amendment-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"setupId\": \"<string>\",\n  \"performanceObligation\": \"<string>\",\n  \"allocationMethod\": \"<string>\",\n  \"complianceStandard\": \"<string>\",\n  \"key_0\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"setupId\": \"<string>\",\n  \"performanceObligation\": \"<string>\",\n  \"allocationMethod\": \"<string>\",\n  \"complianceStandard\": \"<string>\",\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.recvue.com/api/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.recvue.com/api/v2.0/api/scim/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fab6f45c-c26e-4015-b363-5e3df3305570",
+    "name": "RecVue Authentication Revenue Recognition API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue's public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.\n\nContact Support:\n Name: RecVue",
+      "type": "text/plain"
+    }
+  }
+}

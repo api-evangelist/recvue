@@ -1,0 +1,222 @@
+{
+  "item": [
+    {
+      "id": "bc33810e-8971-4a30-a63e-ade80feedefa",
+      "name": "Billing",
+      "description": {
+        "content": "Bill runs and invoice generation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "261d63a2-3eca-494d-a806-868b67cfa83e",
+          "name": "Get bill runs",
+          "request": {
+            "name": "Get bill runs",
+            "description": {
+              "content": "Retrieves bill runs with advanced filtering by name, date, and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billruns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3449c07-c8d9-4fe3-9365-852f95fbc6af",
+              "name": "A list of bill runs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billruns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"billRunId\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"COMPLETED\",\n      \"billingDate\": \"1998-08-26\"\n    },\n    {\n      \"billRunId\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"COMPLETED\",\n      \"billingDate\": \"1992-04-16\",\n      \"key_0\": 6592.594722727218,\n      \"key_1\": \"string\",\n      \"key_2\": 3161,\n      \"key_3\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68fa22d9-ad60-4e4a-a207-40b98e0648a6",
+          "name": "Create bill run",
+          "request": {
+            "name": "Create bill run",
+            "description": {
+              "content": "Generates invoices. Status flows CREATED to PROCESSING to COMPLETED.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billruns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"billRunId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"billingDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f78c9cf2-1d9c-4227-b6fb-398ef6687b00",
+              "name": "The created bill run.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billruns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"billRunId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"billingDate\": \"<date>\",\n  \"key_0\": 1275.9856268271851,\n  \"key_1\": 3649.655847763107\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"billRunId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"billingDate\": \"<date>\",\n  \"key_0\": 1275.9856268271851,\n  \"key_1\": 3649.655847763107\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.recvue.com/api/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.recvue.com/api/v2.0/api/scim/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7ce5b251-ca53-46e4-a1fe-773ba0071a6a",
+    "name": "RecVue Authentication Billing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue's public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.\n\nContact Support:\n Name: RecVue",
+      "type": "text/plain"
+    }
+  }
+}

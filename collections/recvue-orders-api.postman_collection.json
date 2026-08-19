@@ -1,0 +1,886 @@
+{
+  "item": [
+    {
+      "id": "522fafc7-7729-4b6c-a59d-002a96eb9b63",
+      "name": "Orders",
+      "description": {
+        "content": "Order and order-line lifecycle (order-to-cash).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34976fd9-976d-40a3-b20b-eb219c46efa2",
+          "name": "Get orders",
+          "request": {
+            "name": "Get orders",
+            "description": {
+              "content": "Retrieves a paginated list of orders with comprehensive filtering options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be698ca9-46c4-483c-85b4-e7a83f35d5c2",
+              "name": "A paginated list of orders.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"orderId\": \"string\",\n      \"orderNumber\": \"string\",\n      \"externalReference\": \"string\",\n      \"orderType\": \"string\",\n      \"customerAccountNumber\": \"string\",\n      \"status\": \"string\",\n      \"startDate\": \"1984-02-04\",\n      \"endDate\": \"1948-02-14\",\n      \"currency\": \"string\",\n      \"lines\": [\n        {\n          \"lineId\": \"string\",\n          \"productId\": \"string\",\n          \"quantity\": 6166.603865054697,\n          \"unitPrice\": 7823.235404477689,\n          \"priceListId\": \"string\",\n          \"revenueFlag\": false\n        },\n        {\n          \"lineId\": \"string\",\n          \"productId\": \"string\",\n          \"quantity\": 3416.4859320607434,\n          \"unitPrice\": 1043.3332060144573,\n          \"priceListId\": \"string\",\n          \"revenueFlag\": false,\n          \"key_0\": 8151.679076592741,\n          \"key_1\": 1152,\n          \"key_2\": \"string\"\n        }\n      ]\n    },\n    {\n      \"orderId\": \"string\",\n      \"orderNumber\": \"string\",\n      \"externalReference\": \"string\",\n      \"orderType\": \"string\",\n      \"customerAccountNumber\": \"string\",\n      \"status\": \"string\",\n      \"startDate\": \"1968-04-15\",\n      \"endDate\": \"2008-04-18\",\n      \"currency\": \"string\",\n      \"lines\": [\n        {\n          \"lineId\": \"string\",\n          \"productId\": \"string\",\n          \"quantity\": 5683.042753682394,\n          \"unitPrice\": 7760.260293615209,\n          \"priceListId\": \"string\",\n          \"revenueFlag\": false\n        },\n        {\n          \"lineId\": \"string\",\n          \"productId\": \"string\",\n          \"quantity\": 6329.448850720748,\n          \"unitPrice\": 2348.6184531042286,\n          \"priceListId\": \"string\",\n          \"revenueFlag\": false,\n          \"key_0\": 6602.585637669348,\n          \"key_1\": 8686\n        }\n      ]\n    }\n  ],\n  \"page\": 4157,\n  \"total\": 4148\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c0f659d-549c-42c7-a55b-635bde94596b",
+              "name": "Authentication failed or token is missing/expired.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10d7eba2-021d-440e-8175-99c76ae1c2c2",
+          "name": "Create order",
+          "request": {
+            "name": "Create order",
+            "description": {
+              "content": "Creates an order. Supports hundreds of standard and custom fields including revenue settings and billing associations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\"\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bcdc0bba-b116-4130-8c7e-cd25ec3a9b7e",
+              "name": "The created order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": 7505,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": 7505,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48f93ba8-3284-43f2-8567-8ef47caf8bde",
+              "name": "Authentication failed or token is missing/expired.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": 7505,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9319b17-f1f5-4d56-8309-e74f9fe47c6b",
+          "name": "Get order by ID",
+          "request": {
+            "name": "Get order by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3328e68c-bb7e-4139-a7ad-c713c49b8267",
+              "name": "The order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": 7505,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfecded1-3108-4513-bfe7-55f2ef35a59e",
+              "name": "Authentication failed or token is missing/expired.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba4b9440-f2e4-4c60-8d06-68cf057d3da8",
+          "name": "Update order",
+          "request": {
+            "name": "Update order",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\"\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64da8d10-5f79-4cbe-834b-dc9b65229565",
+              "name": "The updated order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": 7505,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": 7505,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0906b48b-985b-41d1-884d-647f2653a6e8",
+          "name": "Delete order",
+          "request": {
+            "name": "Delete order",
+            "description": {
+              "content": "Irreversible operation removing an order and its lines.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4516b74-07ce-4095-bd63-52c1c1443de4",
+              "name": "Deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2811a646-4259-447a-a3a6-82036d4558d8",
+          "name": "Activate order",
+          "request": {
+            "name": "Activate order",
+            "description": {
+              "content": "Enables billing schedule generation for the order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderId",
+                "activate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb3f0fc9-31b3-49ce-a660-f5cb400c0030",
+              "name": "The activated order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": 7505,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2606958-5245-4529-beee-437e3d994837",
+          "name": "Terminate order",
+          "request": {
+            "name": "Terminate order",
+            "description": {
+              "content": "Full or partial cancellation with credit options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderId",
+                "terminate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1da21fe-a748-4624-b937-bd774e832e80",
+              "name": "The terminated order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId",
+                    "terminate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"<string>\",\n  \"orderNumber\": \"<string>\",\n  \"externalReference\": \"<string>\",\n  \"orderType\": \"<string>\",\n  \"customerAccountNumber\": \"<string>\",\n  \"status\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"lines\": [\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"lineId\": \"<string>\",\n      \"productId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<number>\",\n      \"priceListId\": \"<string>\",\n      \"revenueFlag\": \"<boolean>\",\n      \"key_0\": 7505,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.recvue.com/api/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.recvue.com/api/v2.0/api/scim/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "da8f509a-7907-4692-bb14-44ad62c40f2c",
+    "name": "RecVue Authentication Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue's public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.\n\nContact Support:\n Name: RecVue",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "item": [
+    {
+      "id": "379200b6-6369-44a8-b891-21a66fb36abc",
+      "name": "Usage",
+      "description": {
+        "content": "Usage/delivery ingestion for consumption billing.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2bb511f1-f8d2-4cf6-a4ed-ff7dd96ff892",
+          "name": "Load usage records into batch",
+          "request": {
+            "name": "Load usage records into batch",
+            "description": {
+              "content": "Loads usage records as a JSON payload routed to the Usage Hub for consumption-based billing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage",
+                "batches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"batchId\": \"<string>\",\n  \"records\": [\n    {\n      \"key_0\": false,\n      \"key_1\": 5621.319310467109,\n      \"key_2\": 1560.0771062448648\n    },\n    {\n      \"key_0\": 6046,\n      \"key_1\": \"string\"\n    }\n  ],\n  \"key_0\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c5742ea3-760f-4fe8-a5e5-37542c58d814",
+              "name": "The accepted usage batch.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage",
+                    "batches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"batchId\": \"<string>\",\n  \"records\": [\n    {\n      \"key_0\": 1558\n    },\n    {\n      \"key_0\": 4404,\n      \"key_1\": \"string\",\n      \"key_2\": 9405\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"batchId\": \"<string>\",\n  \"records\": [\n    {\n      \"key_0\": 1558\n    },\n    {\n      \"key_0\": 4404,\n      \"key_1\": \"string\",\n      \"key_2\": 9405\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cb6ea27-d559-4d71-a802-d8099e03b5a1",
+          "name": "List usages/deliveries",
+          "request": {
+            "name": "List usages/deliveries",
+            "description": {
+              "content": "Paginated ORDER_DELIVERIES records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deliveries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93c1463b-9681-4dd7-949b-420a0d6a0e24",
+              "name": "A list of deliveries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deliveries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"deliveryId\": \"string\",\n      \"orderLineId\": \"string\",\n      \"quantity\": 8797.463299318646,\n      \"deliveryDate\": \"1954-07-10\",\n      \"status\": \"string\"\n    },\n    {\n      \"deliveryId\": \"string\",\n      \"orderLineId\": \"string\",\n      \"quantity\": 4596.667143691147,\n      \"deliveryDate\": \"1993-01-12\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.recvue.com/api/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.recvue.com/api/v2.0/api/scim/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7b7c85e4-3a51-4c8f-a224-e0682d901417",
+    "name": "RecVue Authentication Usage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue's public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.\n\nContact Support:\n Name: RecVue",
+      "type": "text/plain"
+    }
+  }
+}

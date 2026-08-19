@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RecVue Authentication Revenue Recognition API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.recvue.com/api/v2.0/api/scim/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Revenue Recognition",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get revenue contract amendment setup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.recvue.com/api/v2.0/revenue/contract-amendment-setup"
+          },
+          "docs": "Retrieves ASC 606 performance-obligation (POB) and compliance configuration for revenue-contract amendments."
+        },
+        {
+          "info": {
+            "name": "Create revenue contract amendment setup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.recvue.com/api/v2.0/revenue/contract-amendment-setup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates ASC 606 POB and compliance controls for a revenue contract."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

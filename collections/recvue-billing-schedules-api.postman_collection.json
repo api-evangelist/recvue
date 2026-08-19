@@ -1,0 +1,222 @@
+{
+  "item": [
+    {
+      "id": "4098641c-2c68-41f9-b75d-19930c248cfc",
+      "name": "Billing Schedules",
+      "description": {
+        "content": "Dated billing schedule records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2cb62a1-0e75-4ffd-bb52-39d9f6c070fa",
+          "name": "Get billing schedules",
+          "request": {
+            "name": "Get billing schedules",
+            "description": {
+              "content": "Paginated retrieval of billing schedules with filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billingschedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd82bea2-850b-4f72-a42e-a1fcbe9e6b20",
+              "name": "A list of billing schedules.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billingschedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"scheduleId\": \"string\",\n      \"orderLineId\": \"string\",\n      \"billingDate\": \"2020-06-25\",\n      \"quantity\": 8715.365552923151,\n      \"amount\": 7018.48469231355,\n      \"contingencyFlag\": true\n    },\n    {\n      \"scheduleId\": \"string\",\n      \"orderLineId\": \"string\",\n      \"billingDate\": \"2009-01-16\",\n      \"quantity\": 2980.567617266543,\n      \"amount\": 6067.557916311883,\n      \"contingencyFlag\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "072ae613-eb32-474c-a7da-c4486e585e23",
+          "name": "Create billing schedule",
+          "request": {
+            "name": "Create billing schedule",
+            "description": {
+              "content": "Creates manual schedules for one-time or milestone billing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billingschedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"scheduleId\": \"<string>\",\n  \"orderLineId\": \"<string>\",\n  \"billingDate\": \"<date>\",\n  \"quantity\": \"<number>\",\n  \"amount\": \"<number>\",\n  \"contingencyFlag\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "32ef0c70-85c0-412c-b175-e316a47589c9",
+              "name": "The created billing schedule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billingschedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"scheduleId\": \"<string>\",\n  \"orderLineId\": \"<string>\",\n  \"billingDate\": \"<date>\",\n  \"quantity\": \"<number>\",\n  \"amount\": \"<number>\",\n  \"contingencyFlag\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"scheduleId\": \"<string>\",\n  \"orderLineId\": \"<string>\",\n  \"billingDate\": \"<date>\",\n  \"quantity\": \"<number>\",\n  \"amount\": \"<number>\",\n  \"contingencyFlag\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.recvue.com/api/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.recvue.com/api/v2.0/api/scim/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0e171718-679b-463c-94f9-23c0f80a9e35",
+    "name": "RecVue Authentication Billing Schedules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue's public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.\n\nContact Support:\n Name: RecVue",
+      "type": "text/plain"
+    }
+  }
+}

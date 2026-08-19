@@ -1,0 +1,222 @@
+{
+  "item": [
+    {
+      "id": "40dda7fe-5da3-489e-9fac-15b0fa85591c",
+      "name": "Customers",
+      "description": {
+        "content": "Customer accounts, sites, and contacts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b80d0f6c-95f9-4b92-be40-0f84e063f86e",
+          "name": "Get customer accounts",
+          "request": {
+            "name": "Get customer accounts",
+            "description": {
+              "content": "Retrieves customer accounts by ID or origSystemReference.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1520c2a-0574-4407-97ff-a16dd1a462dc",
+              "name": "A list of customer accounts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"accountNumber\": \"string\",\n      \"name\": \"string\",\n      \"origSystemReference\": \"string\",\n      \"paymentTerms\": \"string\",\n      \"sites\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": 5478.168886183437\n        },\n        {\n          \"key_0\": true,\n          \"key_1\": 432\n        }\n      ]\n    },\n    {\n      \"accountNumber\": \"string\",\n      \"name\": \"string\",\n      \"origSystemReference\": \"string\",\n      \"paymentTerms\": \"string\",\n      \"sites\": [\n        {\n          \"key_0\": false\n        },\n        {\n          \"key_0\": 5343.918471250425,\n          \"key_1\": 7880.920167520217,\n          \"key_2\": \"string\",\n          \"key_3\": 943\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93f7104a-e270-423b-b2c0-f4d7e0178d00",
+          "name": "Create customer account",
+          "request": {
+            "name": "Create customer account",
+            "description": {
+              "content": "Creates a customer account with partner and payment-term validation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountNumber\": \"<string>\",\n  \"name\": \"<string>\",\n  \"origSystemReference\": \"<string>\",\n  \"paymentTerms\": \"<string>\",\n  \"sites\": [\n    {\n      \"key_0\": 3466.7592551590133\n    },\n    {\n      \"key_0\": false,\n      \"key_1\": 8333.054573741643,\n      \"key_2\": true\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "93cbc051-6f23-41a1-a33d-76515ce3edb2",
+              "name": "The created customer account.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountNumber\": \"<string>\",\n  \"name\": \"<string>\",\n  \"origSystemReference\": \"<string>\",\n  \"paymentTerms\": \"<string>\",\n  \"sites\": [\n    {\n      \"key_0\": 2998.6514134796294\n    },\n    {\n      \"key_0\": 9956,\n      \"key_1\": \"string\",\n      \"key_2\": true,\n      \"key_3\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountNumber\": \"<string>\",\n  \"name\": \"<string>\",\n  \"origSystemReference\": \"<string>\",\n  \"paymentTerms\": \"<string>\",\n  \"sites\": [\n    {\n      \"key_0\": 2998.6514134796294\n    },\n    {\n      \"key_0\": 9956,\n      \"key_1\": \"string\",\n      \"key_2\": true,\n      \"key_3\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.recvue.com/api/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.recvue.com/api/v2.0/api/scim/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fc2ca8c1-c9b1-4216-bb9e-aa716c95b345",
+    "name": "RecVue Authentication Customers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RecVue is an enterprise revenue management platform (RevOS) covering order-to-cash, billing, usage-based monetization, pricing, and ASC 606 / IFRS 15 revenue recognition. This OpenAPI is derived from RecVue's public developer reference at https://developer.recvue.com. The base URLs, the OAuth2 client-credentials authentication, and the paths for representative operations (for example GET /orders) are confirmed from that public reference; the full request/response schemas are honestly modeled from the documented resource operations rather than reproduced field-for-field, and RecVue tenants (production and sandbox) are provisioned through an enterprise sales process. Endpoints marked with `x-endpointsModeled: true` reflect documented operations whose exact path or payload was not verified verbatim. Treat this as a navigational model, not a generated client contract; consult developer.recvue.com/reference for authoritative detail.\n\nContact Support:\n Name: RecVue",
+      "type": "text/plain"
+    }
+  }
+}
