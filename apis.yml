@@ -209,6 +209,8 @@ apis:
   humanURL: https://developer.recvue.com/reference/getrevcontractamendsetup
   baseURL: https://api.recvue.com/api/v2.0
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
