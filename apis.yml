@@ -14,6 +14,18 @@ description: RecVue is an enterprise revenue management platform (RevOS - the Re
   usage/deliveries, customers, invoices/adjustments, and revenue contracts. The
   platform is enterprise/sales-gated for provisioning (production and sandbox
   tenants), but the API reference is public at developer.recvue.com.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
