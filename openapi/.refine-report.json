@@ -1,16 +1,7 @@
 {
   "provider": "recvue",
   "sources": [
-    "recvue-authentication-api-openapi.yml",
-    "recvue-billing-api-openapi.yml",
-    "recvue-billing-schedules-api-openapi.yml",
-    "recvue-customers-api-openapi.yml",
-    "recvue-invoices-api-openapi.yml",
-    "recvue-orders-api-openapi.yml",
-    "recvue-pricing-api-openapi.yml",
-    "recvue-programs-api-openapi.yml",
-    "recvue-revenue-recognition-api-openapi.yml",
-    "recvue-usage-api-openapi.yml"
+    "_original/recvue-openapi.yml"
   ],
   "outputs": [
     "recvue-authentication-api-openapi.yml",
@@ -27,6 +18,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "recvue-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "recvue-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-billing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-billing-schedules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-pricing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-programs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-revenue-recognition-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "recvue-usage-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
