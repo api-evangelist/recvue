@@ -60,17 +60,6 @@ paths:
                       $ref: '#/components/schemas/Delivery'
 components:
   schemas:
-    UsageBatch:
-      type: object
-      properties:
-        batchId:
-          type: string
-        records:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-      additionalProperties: true
     Delivery:
       type: object
       properties:
@@ -85,6 +74,17 @@ components:
           format: date
         status:
           type: string
+      additionalProperties: true
+    UsageBatch:
+      type: object
+      properties:
+        batchId:
+          type: string
+        records:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
       additionalProperties: true
   securitySchemes:
     oauth2ClientCredentials:
