@@ -378,6 +378,9 @@ apis:
   - type: APIReference
     url: https://developer.recvue.com/reference/createinvoice
 common:
+- type: CapabilityMap
+  url: capabilities/recvue-capability-edges.yml
+  name: RecVue Business Capability Map
 - type: AgenticAccess
   url: agentic-access/recvue-agentic-access.yml
 - type: Authentication
