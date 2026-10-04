@@ -165,6 +165,33 @@ components:
           type: string
         message:
           type: string
+    OrderList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        page:
+          type: integer
+        total:
+          type: integer
+    OrderLine:
+      type: object
+      properties:
+        lineId:
+          type: string
+        productId:
+          type: string
+        quantity:
+          type: number
+        unitPrice:
+          type: number
+        priceListId:
+          type: string
+        revenueFlag:
+          type: boolean
+      additionalProperties: true
     Order:
       type: object
       description: An order. RecVue orders carry hundreds of standard and custom fields; only a representative subset is modeled here.
@@ -193,33 +220,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OrderLine'
-      additionalProperties: true
-    OrderList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Order'
-        page:
-          type: integer
-        total:
-          type: integer
-    OrderLine:
-      type: object
-      properties:
-        lineId:
-          type: string
-        productId:
-          type: string
-        quantity:
-          type: number
-        unitPrice:
-          type: number
-        priceListId:
-          type: string
-        revenueFlag:
-          type: boolean
       additionalProperties: true
   responses:
     Unauthorized:
