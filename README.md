@@ -1,4 +1,4 @@
-# RecVue (recvue)
+# RecVue
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,119 +64,134 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-RecVue is an enterprise revenue management platform - RevOS, the Revenue Operating System - that unifies complex billing, revenue recognition, order-to-cash, usage-based monetization, and partner settlements for the office of the CFO. It automates recurring, usage, milestone, and hybrid billing models and recognizes revenue in compliance with **ASC 606** and **IFRS 15**, with performance-obligation tracking, allocation, deferral, and audit trails.
+RecVue is an enterprise revenue management platform (RevOS - the Revenue Operating System) that unifies complex billing, revenue recognition, order-to-cash, usage-based monetization, and partner settlements for the office of the CFO. It automates recurring, usage, milestone, and hybrid billing models and recognizes revenue in compliance with ASC 606 and IFRS 15, with performance-obligation tracking, allocation, deferral, and audit trails. RecVue is API-first and exposes a documented, RESTful developer API (JSON, OAuth2 client-credentials, a Bulk API for large data sets, and official Node, Ruby, JavaScript, and Python client libraries) covering orders, order lines, bill runs, billing schedules, pricing, usage/deliveries, customers, invoices/adjustments, and revenue contracts. The platform is enterprise/sales-gated for provisioning (production and sandbox tenants), but the API reference is public at developer.recvue.com.
 
-RecVue is API-first and publishes a documented, RESTful developer API at [developer.recvue.com](https://developer.recvue.com/): JSON responses, OAuth2 client-credentials authentication (token at `/api/scim/oauth/token`), a Bulk API for large data sets, official Node/Ruby/JavaScript/Python client libraries, and an `llms.txt` index for AI agents. Production base URL is `https://api.recvue.com/api/v2.0`; a sandbox is available at `https://sandbox-api.recvue.com/api/v2.0`.
+**Areas:** Revenue Recognition · ASC 606 · Billing · Order-to-Cash · Revenue Management · Usage-Based Billing · Partner Settlements · IFRS 15 · Subscription Billing · Enterprise
 
-**Access model:** the API reference is public, but RecVue is an enterprise product. Production and sandbox tenants, API credentials, and RevOS modules are provisioned through a direct sales process - there is no public self-service signup or pricing. RecVue is a Palo Alto company (founded 2016) serving large enterprises in telecom, transportation and logistics, technology, AI infrastructure, and business services.
+## RecVue on APIs.io
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/recvue/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/recvue/refs/heads/main/apis.yml)
+Everything profiled for RecVue is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/recvue/](https://apis.io/providers/recvue/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Revenue Recognition
-- ASC 606
-- Billing
-- Order-to-Cash
-- Revenue Management
-- Usage-Based Billing
-- Partner Settlements
-- IFRS 15
-- Subscription Billing
-- Enterprise
+- [RecVue Authentication API](https://apis.io/apis/recvue/recvue-authentication-api/) — OAuth2 client-credentials token issuance.
+- [RecVue Billing API](https://apis.io/apis/recvue/recvue-billing-api/) — Bill runs and invoice generation.
+- [RecVue Billing Schedules API](https://apis.io/apis/recvue/recvue-billing-schedules-api/) — Dated billing schedule records.
+- [RecVue Customers API](https://apis.io/apis/recvue/recvue-customers-api/) — Customer accounts, sites, and contacts.
+- [RecVue Invoices API](https://apis.io/apis/recvue/recvue-invoices-api/) — Invoices and adjustments (AR integration).
+- [RecVue Orders API](https://apis.io/apis/recvue/recvue-orders-api/) — Order and order-line lifecycle (order-to-cash).
+- [RecVue Pricing API](https://apis.io/apis/recvue/recvue-pricing-api/) — Price lists, tier pricing, and pricing rules.
+- [RecVue Programs API](https://apis.io/apis/recvue/recvue-programs-api/) — Asynchronous concurrent programs (bill runs, revenue, exports).
+- [RecVue Revenue Recognition API](https://apis.io/apis/recvue/recvue-revenue-recognition-api/) — ASC 606 / IFRS 15 revenue-contract configuration.
+- [RecVue Usage API](https://apis.io/apis/recvue/recvue-usage-api/) — Usage/delivery ingestion for consumption billing.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-11
-- **Modified:** 2026-07-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-The logical APIs below are grouped from RecVue's public reference (120+ documented operations) around the highest-value revenue use cases. All share base URL `https://api.recvue.com/api/v2.0` and OAuth2 client-credentials auth. See `openapi/recvue-openapi.yml` for the modeled surface; base URLs, auth, and the `GET /orders` and token endpoints are confirmed verbatim, while other paths/payloads are honestly modeled from the documented operations.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### RecVue Revenue Recognition API
+- [Recvue Agentic Access](https://apis.io/agentic-access/recvue/recvue-agentic-access/)
 
-Configure and track ASC 606 / IFRS 15 revenue recognition - revenue-contract amendment setup (performance-obligation and compliance controls) and amendment audit history. Revenue schedules, allocation, and deferral run via the concurrent-program engine.
+#### Collections (11)
 
-- **Human URL:** [https://developer.recvue.com/reference/getrevcontractamendsetup](https://developer.recvue.com/reference/getrevcontractamendsetup)
-- **Base URL:** `https://api.recvue.com/api/v2.0`
-- **Tags:** Revenue Recognition, ASC 606, IFRS 15, Revenue Contracts
+Postman and Open Collection request collections.
 
-### RecVue Billing API
+- [RecVue API](https://apis.io/collections/recvue/open-recvue/)
+- [RecVue Authentication API](https://apis.io/collections/recvue/open-recvue-authentication-api/)
+- [RecVue Authentication Billing API](https://apis.io/collections/recvue/open-recvue-billing-api/)
+- [RecVue Authentication Billing Schedules API](https://apis.io/collections/recvue/open-recvue-billing-schedules-api/)
+- [RecVue Authentication Customers API](https://apis.io/collections/recvue/open-recvue-customers-api/)
+- [RecVue Authentication Invoices API](https://apis.io/collections/recvue/open-recvue-invoices-api/)
+- [RecVue Authentication Orders API](https://apis.io/collections/recvue/open-recvue-orders-api/)
+- [RecVue Authentication Pricing API](https://apis.io/collections/recvue/open-recvue-pricing-api/)
+- [RecVue Authentication Programs API](https://apis.io/collections/recvue/open-recvue-programs-api/)
+- [RecVue Authentication Revenue Recognition API](https://apis.io/collections/recvue/open-recvue-revenue-recognition-api/)
+- [RecVue Authentication Usage API](https://apis.io/collections/recvue/open-recvue-usage-api/)
 
-Generate and manage invoices through bill runs (CREATED to PROCESSING to COMPLETED), retrieve invoice and billing-line detail, export bill-run artifacts (PDF/XML/CSV/tax), and approve or reject invoices. Supports subscription, usage, one-time, milestone, tiered, and hybrid billing.
+#### Security (1)
 
-- **Human URL:** [https://developer.recvue.com/reference/getbillrun](https://developer.recvue.com/reference/getbillrun)
-- **Base URL:** `https://api.recvue.com/api/v2.0`
-- **Tags:** Billing, Bill Runs, Invoicing
+Authentication, trust centre, and vulnerability disclosure.
 
-### RecVue Billing Schedules API
+- [Recvue Authentication](https://apis.io/security/recvue/recvue-authentication/)
 
-Retrieve, create, update, and delete billing schedules - the dated, quantity-bearing records that drive one-time, milestone, and contingent billing.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://developer.recvue.com/reference/getbillingschedule](https://developer.recvue.com/reference/getbillingschedule)
-- **Base URL:** `https://api.recvue.com/api/v2.0`
-- **Tags:** Billing Schedules, Milestone Billing, Deferred Billing
+Published plans, tiers and prices.
 
-### RecVue Orders API
+- [Recvue Plans Pricing](https://apis.io/plans/recvue/recvue-plans-pricing/)
 
-The order-to-cash core - create, read, update, delete, upsert-by-external-reference, activate, terminate, and amend orders and order lines, and manage order types (which define billing and revenue rules).
+#### Rate limits (1)
 
-- **Human URL:** [https://developer.recvue.com/reference/getorder](https://developer.recvue.com/reference/getorder)
-- **Base URL:** `https://api.recvue.com/api/v2.0`
-- **Tags:** Orders, Order-to-Cash, Contracts, Amendments
+Published request limits.
 
-### RecVue Usage and Deliveries API
+- [Recvue Rate Limits](https://apis.io/rate-limits/recvue/recvue-rate-limits/)
 
-Ingest and manage consumption data for usage-based billing - load usage records into batches routed to the Usage Hub, query/update/delete batch details, and manage usage/delivery (ORDER_DELIVERIES) records that feed billing and revenue.
+#### FinOps (1)
 
-- **Human URL:** [https://developer.recvue.com/reference/createbatchdetails](https://developer.recvue.com/reference/createbatchdetails)
-- **Base URL:** `https://api.recvue.com/api/v2.0`
-- **Tags:** Usage-Based Billing, Usage Ingestion, Deliveries, Metering
+What the API costs to run, by operation.
 
-### RecVue Pricing API
+- [Recvue Finops](https://apis.io/finops/recvue/recvue-finops/)
 
-Manage price lists (standard, customer, revenue, hierarchical), tier-pricing configurations (volume, quantity, usage, multi-dimensional), attribute-based pricing rules, and pricing formulas.
+## Where to find this API
 
-- **Human URL:** [https://developer.recvue.com/reference/getpricelists](https://developer.recvue.com/reference/getpricelists)
-- **Base URL:** `https://api.recvue.com/api/v2.0`
-- **Tags:** Pricing, Price Lists, Tiered Pricing, Pricing Rules
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### RecVue Customers and Accounts API
-
-Create, read, and update customer accounts, sites (BILL_TO, SHIP_TO, SELL_TO), and contacts, with partner and payment-term validation. Includes supplier/vendor records for partner settlement.
-
-- **Human URL:** [https://developer.recvue.com/reference/getcustaccountsusingget](https://developer.recvue.com/reference/getcustaccountsusingget)
-- **Base URL:** `https://api.recvue.com/api/v2.0`
-- **Tags:** Customers, Accounts, Sites, Contacts
-
-### RecVue Invoices and Adjustments API
-
-Create or update invoices for manual AR integration, search invoices for adjustments, run standard/manual adjustment processes, manage transaction types (INV, CM, DM), and update payment and billing lines with AR transaction IDs and GL dates.
-
-- **Human URL:** [https://developer.recvue.com/reference/createinvoice](https://developer.recvue.com/reference/createinvoice)
-- **Base URL:** `https://api.recvue.com/api/v2.0`
-- **Tags:** Invoices, Adjustments, AR Integration, Credit Memos
-
-## Authentication
-
-OAuth2, `client_credentials` grant. Request an access token from `https://api.recvue.com/api/v2.0/api/scim/oauth/token` using a Basic auth header (client_id:client_secret) or client_id/client_secret form params, then send the token as an `Authorization: Bearer` header. See `authentication/recvue-authentication.yml`.
-
-## Common Properties
-
-- [Authentication](authentication/recvue-authentication.yml)
-- [LinkedIn](https://www.linkedin.com/company/recvue)
 - [Website](https://www.recvue.com/)
 - [Documentation](https://developer.recvue.com/)
-- [Plans](plans/recvue-plans-pricing.yml)
-- [Rate Limits](rate-limits/recvue-rate-limits.yml)
-- [Fin Ops](finops/recvue-finops.yml)
+- [Blog](https://www.recvue.com/resources/)
 
-## Review
+## API Evangelist rating
 
-Does RecVue expose a documented public WebSocket API? **No.** RecVue's API is request/response REST (JSON) over HTTPS, plus a Bulk API and asynchronous concurrent programs; job completion is surfaced by status polling or an HTTP callback webhook. No WebSocket/SSE transport is documented. See `review.yml`.
+**Kin Score 25.1** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 43.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 27.4 |
+| Access clarity | 5.3 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 20.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/recvue/](https://apis.io/providers/recvue/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for RecVue: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/recvue/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
